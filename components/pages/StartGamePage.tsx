@@ -1,13 +1,14 @@
-import { Link } from 'expo-router';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { LinkButton } from '../atoms/LinkButton';
 
 export default function StartGamePage() {
 	return (
-		<View>
-			<Text>Hello World!</Text>
-			<Link href='/in_game' style={{ color: 'blue' }}>
-				In Game
-			</Link>
-		</View>
+		<>
+			<View>
+				<Text>Hello World!</Text>
+				<LinkButton link='/in_game' text='In Game' />
+				<LinkButton link='/in_game' text='In Game' />
+			</View>
+		</>
 	);
 }
