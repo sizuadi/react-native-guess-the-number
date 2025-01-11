@@ -14,7 +14,7 @@ export default function StartGamePage() {
 					autoCorrect={false}
 				/>
 				<View>
-					<DefaultButton onPress={() => {}} text='Start Game' />
+					<DefaultButton onPress={() => {}} text='Test Game' />
 				</View>
 				<LinkButton link='/in_game' text='In Game' />
 				<LinkButton link='/in_game' text='In Game' />
