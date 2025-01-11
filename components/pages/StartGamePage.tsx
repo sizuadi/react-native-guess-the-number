@@ -1,5 +1,6 @@
 import { View, StyleSheet, TextInput } from 'react-native';
-import { LinkButton } from '../atoms/LinkButton';
+import { LinkButton } from '@/components/atoms/LinkButton';
+import { DefaultButton } from '@/components/atoms/DefaultButton';
 
 export default function StartGamePage() {
 	return (
@@ -12,6 +13,9 @@ export default function StartGamePage() {
 					autoCapitalize='none'
 					autoCorrect={false}
 				/>
+				<View>
+					<DefaultButton onPress={() => {}} text='Start Game' />
+				</View>
 				<LinkButton link='/in_game' text='In Game' />
 				<LinkButton link='/in_game' text='In Game' />
 			</View>
