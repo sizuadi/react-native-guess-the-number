@@ -1,9 +1,8 @@
 import { View, Text } from 'react-native';
-
 export default function GameOverPage() {
 	return (
 		<View>
-			<Text>Hello World!</Text>
+			<Text>Game over!</Text>
 		</View>
 	);
 }
