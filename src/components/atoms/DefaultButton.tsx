@@ -10,7 +10,7 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({ onPress, addStyles
 	return (
 		<Pressable onPress={onPress}>
 			<View style={[styles.button, addStyles]}>
-				<Text>{text}</Text>
+				<Text style={styles.buttonText}>{text}</Text>
 			</View>
 		</Pressable>
 	);
@@ -18,12 +18,14 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({ onPress, addStyles
 
 const styles = StyleSheet.create({
 	button: {
-		color: '#fff',
 		backgroundColor: '#023c69',
 		padding: 10,
-		fontSize: 16,
-		borderRadius: 5,
+		borderRadius: 20,
 		width: 100,
+	},
+	buttonText: {
 		textAlign: 'center',
+		color: '#fff',
+		fontSize: 16,
 	},
 });

@@ -1,22 +1,34 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslint from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
 
-
-/** @type {import('eslint').Linter.Config[]} */
 export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
-  {languageOptions: { globals: globals.browser }, 
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [
-          ['@', './']
-        ],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs', '.json']
-      }
-    }
-  }},
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
+	{
+		languageOptions: {
+			ecmaVersion: 2021,
+			sourceType: 'module',
+			parser: tsparser,
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true,
+				},
+			},
+		},
+		env: {
+			node: true,
+			es2021: true,
+		},
+		plugins: {
+			'@typescript-eslint': tseslint,
+		},
+		rules: {
+			...eslint.configs.recommended.rules,
+			...tseslint.configs.recommended.rules,
+			'import/order': 'off',
+			'@typescript-eslint/no-explicit-any': 'off',
+			'react/react-in-jsx-scope': 'off',
+			'react/display-name': 'off',
+			'@typescript-eslint/no-unused-vars': 'warn',
+		},
+	},
 ];

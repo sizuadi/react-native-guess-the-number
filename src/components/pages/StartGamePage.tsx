@@ -1,6 +1,5 @@
-import { View, StyleSheet, TextInput } from 'react-native';
-import { LinkButton } from '@/components/atoms/LinkButton';
 import { DefaultButton } from '@/components/atoms/DefaultButton';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 export default function StartGamePage() {
 	return (
@@ -13,11 +12,14 @@ export default function StartGamePage() {
 					autoCapitalize='none'
 					autoCorrect={false}
 				/>
-				<View>
-					<DefaultButton onPress={() => {}} text='Test Game' />
+				<View style={styles.buttonsContainer}>
+					<View style={styles.buttonContainer}>
+						<DefaultButton onPress={() => {}} text='Reset' />
+					</View>
+					<View style={styles.buttonContainer}>
+						<DefaultButton onPress={() => {}} text='Confirm' />
+					</View>
 				</View>
-				<LinkButton link='/in_game' text='In Game' />
-				<LinkButton link='/in_game' text='In Game' />
 			</View>
 		</>
 	);
@@ -47,5 +49,13 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		textAlign: 'center',
 		marginBottom: 10,
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		flex: 1,
+	},
+	buttonContainer: {
+		alignItems: 'center',
+		marginHorizontal: 10,
 	},
 });
