@@ -1,31 +1,43 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { ImageBackground, StyleSheet, TextInput, View } from 'react-native';
 
 export default function StartGamePage() {
 	return (
 		<>
-			<View style={styles.inputContainer}>
-				<TextInput
-					style={styles.inputText}
-					maxLength={2}
-					keyboardType='number-pad'
-					autoCapitalize='none'
-					autoCorrect={false}
-				/>
-				<View style={styles.buttonsContainer}>
-					<View style={styles.buttonContainer}>
-						<DefaultButton onPress={() => {}} text='Reset' />
+			<LinearGradient colors={['#023c69', '#1481c0']} style={styles.rootScreen}>
+				<ImageBackground
+					source={require('@/assets/images/bg-pict.jpg')}
+					style={styles.rootScreen}
+					imageStyle={{ opacity: 0.15 }}
+				>
+					<View style={styles.inputContainer}>
+						<TextInput
+							style={styles.inputText}
+							maxLength={2}
+							keyboardType='number-pad'
+							autoCapitalize='none'
+							autoCorrect={false}
+						/>
+						<View style={styles.buttonsContainer}>
+							<View style={styles.buttonContainer}>
+								<DefaultButton onPress={() => {}} text='Reset' />
+							</View>
+							<View style={styles.buttonContainer}>
+								<DefaultButton onPress={() => {}} text='Confirm' />
+							</View>
+						</View>
 					</View>
-					<View style={styles.buttonContainer}>
-						<DefaultButton onPress={() => {}} text='Confirm' />
-					</View>
-				</View>
-			</View>
+				</ImageBackground>
+			</LinearGradient>
 		</>
 	);
 }
 
 const styles = StyleSheet.create({
+	rootScreen: {
+		flex: 1,
+	},
 	inputContainer: {
 		marginTop: 100,
 		backgroundColor: '#0b6599',
@@ -52,7 +64,6 @@ const styles = StyleSheet.create({
 	},
 	buttonsContainer: {
 		flexDirection: 'row',
-		flex: 1,
 	},
 	buttonContainer: {
 		alignItems: 'center',
