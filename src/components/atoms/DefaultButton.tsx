@@ -1,30 +1,31 @@
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 interface DefaultButtonProps {
-	onPress?: () => void;
 	addStyles?: ViewStyle;
 	text: string;
+	onPressButton?: () => void;
 }
 
-export const DefaultButton: React.FC<DefaultButtonProps> = ({ onPress, addStyles, text }) => {
+export const DefaultButton: React.FC<DefaultButtonProps> = ({ addStyles, text, onPressButton }) => {
 	return (
-		<Pressable onPress={onPress}>
-			<View style={[styles.button, addStyles]}>
+		<View style={[styles.button, addStyles]}>
+			<Pressable onPress={onPressButton} android_ripple={{ color: '#023c69' }}>
 				<Text style={styles.buttonText}>{text}</Text>
-			</View>
-		</Pressable>
+			</Pressable>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	button: {
 		backgroundColor: '#023c69',
-		padding: 10,
 		borderRadius: 20,
 		width: 100,
+		overflow: 'hidden',
 	},
 	buttonText: {
 		textAlign: 'center',
+		padding: 10,
 		color: '#fff',
 		fontSize: 16,
 	},

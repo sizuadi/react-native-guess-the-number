@@ -1,8 +1,34 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ImageBackground, StyleSheet, TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { Alert, ImageBackground, StyleSheet, TextInput, View } from 'react-native';
 
 export default function StartGamePage() {
+	const [enteredNumber, setEnteredNumber] = useState<string>('');
+
+	function numberInputHandler(text: string) {
+		if (text === '') {
+			setEnteredNumber('');
+		} else {
+			setEnteredNumber(text);
+		}
+	}
+
+	function resetInputHandler() {
+		setEnteredNumber('');
+	}
+
+	function confirmiInputHandler() {
+		const number = parseInt(String(enteredNumber));
+		//
+
+		if (isNaN(number) || number < 1 || number > 99) {
+			Alert.alert('Invalid number', 'please enter a number between 1 and 99.', [
+				{ text: 'Okay', style: 'destructive', onPress: resetInputHandler },
+			]);
+			return;
+		}
+	}
 	return (
 		<>
 			<LinearGradient colors={['#023c69', '#1481c0']} style={styles.rootScreen}>
@@ -18,13 +44,19 @@ export default function StartGamePage() {
 							keyboardType='number-pad'
 							autoCapitalize='none'
 							autoCorrect={false}
+							defaultValue=''
+							value={enteredNumber === '' ? '' : enteredNumber}
+							onChangeText={(text) => numberInputHandler(text)}
 						/>
 						<View style={styles.buttonsContainer}>
 							<View style={styles.buttonContainer}>
-								<DefaultButton onPress={() => {}} text='Reset' />
+								<DefaultButton onPressButton={resetInputHandler} text='Reset' />
 							</View>
 							<View style={styles.buttonContainer}>
-								<DefaultButton onPress={() => {}} text='Confirm' />
+								<DefaultButton
+									onPressButton={confirmiInputHandler}
+									text='Confirm'
+								/>
 							</View>
 						</View>
 					</View>
