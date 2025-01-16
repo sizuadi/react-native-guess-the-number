@@ -5,7 +5,7 @@ export default function InGamePage() {
 	return (
 		<View>
 			<Text>Hello World!</Text>
-			<DefaultButton onPress={() => {}} text='Test Game' />
+			<DefaultButton text='Test Game' />
 		</View>
 	);
 }

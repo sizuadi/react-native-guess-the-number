@@ -1,9 +1,12 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
-import { Alert, ImageBackground, StyleSheet, TextInput, View } from 'react-native';
+import { Alert, StyleSheet, TextInput, View } from 'react-native';
 
-export default function StartGamePage() {
+interface StartGameProps {
+	onPickNumber: (pickedNumber: number) => void;
+}
+
+export default function StartGamePage({ onPickNumber }: StartGameProps) {
 	const [enteredNumber, setEnteredNumber] = useState<string>('');
 
 	function numberInputHandler(text: string) {
@@ -20,7 +23,6 @@ export default function StartGamePage() {
 
 	function confirmiInputHandler() {
 		const number = parseInt(String(enteredNumber));
-		//
 
 		if (isNaN(number) || number < 1 || number > 99) {
 			Alert.alert('Invalid number', 'please enter a number between 1 and 99.', [
@@ -28,48 +30,36 @@ export default function StartGamePage() {
 			]);
 			return;
 		}
+
+		onPickNumber(number);
 	}
 	return (
 		<>
-			<LinearGradient colors={['#023c69', '#1481c0']} style={styles.rootScreen}>
-				<ImageBackground
-					source={require('@/assets/images/bg-pict.jpg')}
-					style={styles.rootScreen}
-					imageStyle={{ opacity: 0.15 }}
-				>
-					<View style={styles.inputContainer}>
-						<TextInput
-							style={styles.inputText}
-							maxLength={2}
-							keyboardType='number-pad'
-							autoCapitalize='none'
-							autoCorrect={false}
-							defaultValue=''
-							value={enteredNumber === '' ? '' : enteredNumber}
-							onChangeText={(text) => numberInputHandler(text)}
-						/>
-						<View style={styles.buttonsContainer}>
-							<View style={styles.buttonContainer}>
-								<DefaultButton onPressButton={resetInputHandler} text='Reset' />
-							</View>
-							<View style={styles.buttonContainer}>
-								<DefaultButton
-									onPressButton={confirmiInputHandler}
-									text='Confirm'
-								/>
-							</View>
-						</View>
+			<View style={styles.inputContainer}>
+				<TextInput
+					style={styles.inputText}
+					maxLength={2}
+					keyboardType='number-pad'
+					autoCapitalize='none'
+					autoCorrect={false}
+					defaultValue=''
+					value={enteredNumber === '' ? '' : enteredNumber}
+					onChangeText={(text) => numberInputHandler(text)}
+				/>
+				<View style={styles.buttonsContainer}>
+					<View style={styles.buttonContainer}>
+						<DefaultButton onPressButton={resetInputHandler} text='Reset' />
 					</View>
-				</ImageBackground>
-			</LinearGradient>
+					<View style={styles.buttonContainer}>
+						<DefaultButton onPressButton={confirmiInputHandler} text='Confirm' />
+					</View>
+				</View>
+			</View>
 		</>
 	);
 }
 
 const styles = StyleSheet.create({
-	rootScreen: {
-		flex: 1,
-	},
 	inputContainer: {
 		marginTop: 100,
 		backgroundColor: '#0b6599',
