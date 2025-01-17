@@ -1,11 +1,18 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function InGamePage() {
 	return (
-		<View>
+		<View style={styles.screen}>
 			<Text>Hello World!</Text>
 			<DefaultButton text='Test Game' />
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	screen: {
+		flex: 1,
+		padding: 24,
+	},
+});

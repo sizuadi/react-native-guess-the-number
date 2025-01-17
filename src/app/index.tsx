@@ -2,7 +2,7 @@ import InGamePage from '@/components/pages/InGamePage';
 import StartGamePage from '@/components/pages/StartGamePage';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 
 export default function InGame() {
 	const [userNumber, setUserNumber] = useState(0);
@@ -24,7 +24,7 @@ export default function InGame() {
 				style={styles.rootScreen}
 				imageStyle={{ opacity: 0.15 }}
 			>
-				{page}
+				<SafeAreaView style={styles.rootScreen}>{page}</SafeAreaView>
 			</ImageBackground>
 		</LinearGradient>
 	);
