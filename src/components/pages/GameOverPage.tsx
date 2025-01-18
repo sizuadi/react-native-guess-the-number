@@ -4,7 +4,7 @@ export default function GameOverPage() {
 	return (
 		<View>
 			<Text>Game over!</Text>
-			<DefaultButton onPress={() => {}} text='New Game' />
+			<DefaultButton text='New Game' />
 		</View>
 	);
 }
