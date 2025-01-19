@@ -1,4 +1,5 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
+import Colors from '@/constants/colors';
 import { useState } from 'react';
 import { Alert, StyleSheet, TextInput, View } from 'react-native';
 
@@ -62,20 +63,20 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 const styles = StyleSheet.create({
 	inputContainer: {
 		marginTop: 100,
-		backgroundColor: '#0b6599',
+		backgroundColor: Colors.primary500,
 		padding: 20,
 		marginHorizontal: 25,
 		borderRadius: 15,
 		elevation: 10,
-		shadowColor: 'black',
+		shadowColor: Colors.black,
 		shadowOpacity: 0.26,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
 		alignItems: 'center',
 	},
 	inputText: {
-		color: '#fff',
-		borderBottomColor: '#fff',
+		color: Colors.white,
+		borderBottomColor: Colors.white,
 		borderBottomWidth: 2,
 		width: 50,
 		paddingBottom: 5,

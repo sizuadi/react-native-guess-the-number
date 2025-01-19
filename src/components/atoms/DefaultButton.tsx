@@ -1,3 +1,4 @@
+import Colors from '@/constants/colors';
 import { Pressable, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 interface DefaultButtonProps {
@@ -18,7 +19,7 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({ addStyles, text, o
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: '#023c69',
+		backgroundColor: Colors.primary800,
 		borderRadius: 20,
 		width: 100,
 		overflow: 'hidden',
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 	buttonText: {
 		textAlign: 'center',
 		padding: 10,
-		color: '#fff',
+		color: Colors.white,
 		fontSize: 16,
 	},
 });

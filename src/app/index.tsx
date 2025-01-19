@@ -1,5 +1,6 @@
 import InGamePage from '@/components/pages/InGamePage';
 import StartGamePage from '@/components/pages/StartGamePage';
+import Colors from '@/constants/colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
@@ -36,20 +37,20 @@ const styles = StyleSheet.create({
 	},
 	inputContainer: {
 		marginTop: 100,
-		backgroundColor: '#0b6599',
+		backgroundColor: Colors.primary800,
 		padding: 20,
 		marginHorizontal: 25,
 		borderRadius: 15,
 		elevation: 10,
-		shadowColor: 'black',
+		shadowColor: Colors.black,
 		shadowOpacity: 0.26,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
 		alignItems: 'center',
 	},
 	inputText: {
-		color: '#fff',
-		borderBottomColor: '#fff',
+		color: Colors.white,
+		borderBottomColor: Colors.white,
 		borderBottomWidth: 2,
 		width: 50,
 		paddingBottom: 5,

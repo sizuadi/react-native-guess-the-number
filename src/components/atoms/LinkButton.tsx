@@ -1,3 +1,4 @@
+import Colors from '@/constants/colors';
 import { ValidRoutes } from '@/types';
 import { Link } from 'expo-router';
 import { StyleSheet, TextStyle } from 'react-native';
@@ -18,8 +19,8 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ link, addStyles, text })
 
 const styles = StyleSheet.create({
 	button: {
-		color: '#fff',
-		backgroundColor: '#023c69',
+		color: Colors.white,
+		backgroundColor: Colors.primary800,
 		padding: 10,
 		fontSize: 16,
 		borderRadius: 5,
