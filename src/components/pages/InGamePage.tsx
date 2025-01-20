@@ -1,12 +1,16 @@
-import { DefaultButton } from '@/components/atoms/DefaultButton';
 import Title from '@/components/atoms/Title';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function InGamePage() {
 	return (
 		<View style={styles.screen}>
-			<Title>Test Hello World</Title>
-			<DefaultButton text='Test Game' />
+			<Title>Opponent's Guess</Title>
+			{/* GUESS */}
+			<View>
+				<Text>Higher or lower?</Text>
+				{/* - + */}
+			</View>
+			{/* LOG ROUNDS */}
 		</View>
 	);
 }
