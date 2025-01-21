@@ -15,7 +15,7 @@ export default function InGame() {
 	let page = <StartGamePage onPickNumber={pickedNumberHandler} />;
 
 	if (userNumber) {
-		page = <InGamePage />;
+		page = <InGamePage userNumber={userNumber} />;
 	}
 
 	return (
