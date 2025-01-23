@@ -1,3 +1,4 @@
+import GameOverPage from '@/components/pages/GameOverPage';
 import InGamePage from '@/components/pages/InGamePage';
 import StartGamePage from '@/components/pages/StartGamePage';
 import Colors from '@/constants/colors';
@@ -7,15 +8,24 @@ import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 
 export default function InGame() {
 	const [userNumber, setUserNumber] = useState(0);
+	const [gameIsOver, setGameIsOver] = useState(false);
 
 	function pickedNumberHandler(pickedNumber: number) {
 		setUserNumber(pickedNumber);
 	}
 
+	function gameOverHandler() {
+		setGameIsOver(true);
+	}
+
 	let page = <StartGamePage onPickNumber={pickedNumberHandler} />;
 
 	if (userNumber) {
-		page = <InGamePage userNumber={userNumber} />;
+		page = <InGamePage userNumber={userNumber} onGameOver={gameOverHandler} />;
+	}
+
+	if (gameIsOver) {
+		page = <GameOverPage />;
 	}
 
 	return (

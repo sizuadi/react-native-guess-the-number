@@ -2,11 +2,12 @@ import { DefaultButton } from '@/components/atoms/DefaultButton';
 import NumberContainer from '@/components/atoms/NumberContainer';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text, View } from 'react-native';
 
 interface inGameProps {
 	userNumber: number;
+	onGameOver: () => void;
 }
 
 function generateRandomBetween(min: number, max: number, exclude: number) {
@@ -19,9 +20,15 @@ function generateRandomBetween(min: number, max: number, exclude: number) {
 
 let maxBoundary = 100;
 let minBoundary = 1;
-export default function InGamePage({ userNumber }: inGameProps) {
+export default function InGamePage({ userNumber, onGameOver }: inGameProps) {
 	const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);
 	const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+	useEffect(() => {
+		if (currentGuess === userNumber) {
+			onGameOver();
+		}
+	}, [currentGuess, userNumber, onGameOver]);
 
 	function nextGuessHandler(direction: 'lower' | 'greater') {
 		if (
