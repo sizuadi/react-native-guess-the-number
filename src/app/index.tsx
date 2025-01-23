@@ -24,7 +24,7 @@ export default function InGame() {
 		page = <InGamePage userNumber={userNumber} onGameOver={gameOverHandler} />;
 	}
 
-	if (gameIsOver) {
+	if (gameIsOver && userNumber) {
 		page = <GameOverPage />;
 	}
 

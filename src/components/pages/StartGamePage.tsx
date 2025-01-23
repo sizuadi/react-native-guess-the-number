@@ -1,4 +1,5 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
+import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
 import { useState } from 'react';
 import { Alert, StyleSheet, TextInput, View } from 'react-native';
@@ -35,7 +36,8 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 		onPickNumber(number);
 	}
 	return (
-		<>
+		<View style={styles.rootContainer}>
+			<Title>Guess My Number</Title>
 			<View style={styles.inputContainer}>
 				<TextInput
 					style={styles.inputText}
@@ -56,15 +58,21 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 					</View>
 				</View>
 			</View>
-		</>
+		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-	inputContainer: {
+	rootContainer: {
 		marginTop: 100,
+		flex: 1,
+		alignItems: 'center',
+	},
+	inputContainer: {
 		backgroundColor: Colors.primary500,
-		padding: 20,
+		paddingVertical: 20,
+		paddingHorizontal: 30,
+		marginTop: 20,
 		marginHorizontal: 25,
 		borderRadius: 15,
 		elevation: 10,

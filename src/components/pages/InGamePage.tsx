@@ -19,9 +19,9 @@ function generateRandomBetween(min: number, max: number, exclude: number) {
 }
 
 let maxBoundary = 100;
-let minBoundary = 1;
+let minBoundary = 0;
 export default function InGamePage({ userNumber, onGameOver }: inGameProps) {
-	const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);
+	const initialGuess = generateRandomBetween(0, 100, userNumber);
 	const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
 	useEffect(() => {
@@ -46,9 +46,6 @@ export default function InGamePage({ userNumber, onGameOver }: inGameProps) {
 			maxBoundary = currentGuess + 1;
 		}
 
-		// TODO : GAME OVER PAGE
-		// if (condition) {
-		// }
 		const newGuessNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
 		setCurrentGuess(newGuessNumber);
 	}
