@@ -1,3 +1,4 @@
+import Card from '@/components/atoms/Card';
 import { DefaultButton } from '@/components/atoms/DefaultButton';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
@@ -38,7 +39,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 	return (
 		<View style={styles.rootContainer}>
 			<Title>Guess My Number</Title>
-			<View style={styles.inputContainer}>
+			<Card>
 				<Text style={styles.instructionText}>Enter a number</Text>
 				<TextInput
 					style={styles.inputText}
@@ -58,7 +59,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 						<DefaultButton onPressButton={confirmiInputHandler} text='Confirm' />
 					</View>
 				</View>
-			</View>
+			</Card>
 		</View>
 	);
 }
