@@ -1,5 +1,6 @@
 import Card from '@/components/atoms/Card';
 import { DefaultButton } from '@/components/atoms/DefaultButton';
+import InstructionText from '@/components/atoms/InstructionText';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
 import { useState } from 'react';
@@ -40,6 +41,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 		<View style={styles.rootContainer}>
 			<Title>Guess My Number</Title>
 			<Card>
+				<InstructionText>Enter a number</InstructionText>
 				<TextInput
 					style={styles.inputText}
 					maxLength={2}

@@ -1,9 +1,9 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
+import InstructionText from '@/components/atoms/InstructionText';
 import NumberContainer from '@/components/atoms/NumberContainer';
 import Title from '@/components/atoms/Title';
-import Colors from '@/constants/colors';
 import { useEffect, useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 
 interface inGameProps {
 	userNumber: number;
@@ -55,7 +55,7 @@ export default function InGamePage({ userNumber, onGameOver }: inGameProps) {
 			{/* GUESS */}
 			<NumberContainer>{currentGuess}</NumberContainer>
 			<View style={styles.controlContainer}>
-				<Text style={styles.controlText}>Higher or lower?</Text>
+				<InstructionText>Higher or lower?</InstructionText>
 				<View style={styles.buttonContainer}>
 					<DefaultButton onPressButton={() => nextGuessHandler('lower')} text='-' />
 					<DefaultButton onPressButton={() => nextGuessHandler('greater')} text='+' />
@@ -77,13 +77,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		padding: 16,
 	},
-	controlText: {
-		fontSize: 24,
-		fontWeight: 'bold',
-		marginBottom: 16,
-		color: Colors.white,
-	},
 	buttonContainer: {
+		marginTop: 20,
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		width: 300,
