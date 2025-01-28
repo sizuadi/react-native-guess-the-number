@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		borderRadius: 5,
 		width: 100,
+		fontFamily: 'open-sans',
 		textAlign: 'center',
 	},
 });

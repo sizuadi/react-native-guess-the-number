@@ -6,16 +6,24 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 
-export default function InGame() {
+export default function Index() {
 	const [userNumber, setUserNumber] = useState(0);
 	const [gameIsOver, setGameIsOver] = useState(false);
+	const [guessNumbers, setGuessNumbers] = useState(0);
 
 	function pickedNumberHandler(pickedNumber: number) {
 		setUserNumber(pickedNumber);
 	}
 
-	function gameOverHandler() {
+	function gameOverHandler(numberOfRounds: number) {
 		setGameIsOver(true);
+		setGuessNumbers(numberOfRounds);
+	}
+
+	function startNewGameHandler() {
+		setUserNumber(0);
+		setGameIsOver(false);
+		setGuessNumbers(0);
 	}
 
 	let page = <StartGamePage onPickNumber={pickedNumberHandler} />;
@@ -25,7 +33,13 @@ export default function InGame() {
 	}
 
 	if (gameIsOver && userNumber) {
-		page = <GameOverPage />;
+		page = (
+			<GameOverPage
+				userNumber={userNumber}
+				roundsNumber={guessNumbers}
+				onStartNewGame={startNewGameHandler}
+			/>
+		);
 	}
 
 	return (
