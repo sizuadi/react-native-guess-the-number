@@ -1,7 +1,7 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 interface GameOverProps {
 	roundsNumber: number;
 	userNumber: number;
@@ -21,6 +21,8 @@ export default function GameOverPage({ roundsNumber, userNumber, onStartNewGame 
 	);
 }
 
+const deviceWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
 	rootContainer: {
 		flex: 1,
@@ -28,8 +30,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	imageSuccess: {
-		width: 300,
-		height: 300,
+		width: deviceWidth < 380 ? 150 : 300,
+		height: deviceWidth < 380 ? 150 : 300,
 	},
 	summaryText: {
 		fontSize: 18,
