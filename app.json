@@ -3,7 +3,7 @@
 		"name": "Guess the Number",
 		"slug": "react-native-guess-the-number",
 		"version": "1.0.0",
-		"orientation": "portrait",
+		"orientation": "default",
 		"icon": "./assets/images/icon.png",
 		"scheme": "myapp",
 		"userInterfaceStyle": "automatic",
