@@ -4,7 +4,7 @@ import InstructionText from '@/components/atoms/InstructionText';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
 import { useState } from 'react';
-import { Alert, StyleSheet, TextInput, View } from 'react-native';
+import { Alert, Dimensions, StyleSheet, TextInput, View } from 'react-native';
 
 interface StartGameProps {
 	onPickNumber: (pickedNumber: number) => void;
@@ -65,9 +65,11 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 	);
 }
 
+const deviceHeigth = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
 	rootContainer: {
-		marginTop: 100,
+		marginTop: deviceHeigth < 400 ? 30 : 100,
 		flex: 1,
 		alignItems: 'center',
 	},
