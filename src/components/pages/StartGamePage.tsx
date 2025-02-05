@@ -34,7 +34,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 		setEnteredNumber('');
 	}
 
-	function confirmiInputHandler() {
+	function confirmInputHandler() {
 		const number = parseInt(String(enteredNumber));
 
 		if (isNaN(number) || number < 1 || number > 99) {
@@ -50,7 +50,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 	const marginTop = height < 380 ? 30 : 50;
 
 	return (
-		<ScrollView contentContainerStyle={styles.screenContainer}>
+		<ScrollView style={styles.screenContainer}>
 			<KeyboardAvoidingView behavior='position' style={styles.screenContainer}>
 				<View style={[styles.rootContainer, { marginTop: marginTop }]}>
 					<Title>Guess My Number</Title>
@@ -71,10 +71,7 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 								<DefaultButton onPressButton={resetInputHandler} text='Reset' />
 							</View>
 							<View style={styles.buttonContainer}>
-								<DefaultButton
-									onPressButton={confirmiInputHandler}
-									text='Confirm'
-								/>
+								<DefaultButton onPressButton={confirmInputHandler} text='Confirm' />
 							</View>
 						</View>
 					</Card>
@@ -106,7 +103,6 @@ const styles = StyleSheet.create({
 		shadowRadius: 10,
 		alignItems: 'center',
 	},
-
 	inputText: {
 		color: Colors.white,
 		borderBottomColor: Colors.white,
