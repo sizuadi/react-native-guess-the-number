@@ -36,7 +36,6 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 
 	function confirmInputHandler() {
 		const number = parseInt(String(enteredNumber));
-
 		if (isNaN(number) || number < 1 || number > 99) {
 			Alert.alert('Invalid number', 'please enter a number between 1 and 99.', [
 				{ text: 'Okay', style: 'destructive', onPress: resetInputHandler },
