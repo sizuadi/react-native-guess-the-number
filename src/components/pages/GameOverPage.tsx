@@ -1,7 +1,15 @@
 import { DefaultButton } from '@/components/atoms/DefaultButton';
 import Title from '@/components/atoms/Title';
 import Colors from '@/constants/colors';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import {
+	Dimensions,
+	Image,
+	KeyboardAvoidingView,
+	ScrollView,
+	StyleSheet,
+	Text,
+	View,
+} from 'react-native';
 interface GameOverProps {
 	roundsNumber: number;
 	userNumber: number;
@@ -9,23 +17,35 @@ interface GameOverProps {
 }
 export default function GameOverPage({ roundsNumber, userNumber, onStartNewGame }: GameOverProps) {
 	return (
-		<View style={styles.rootContainer}>
-			<Title>Game over!</Title>
-			<Image source={require('@/assets/images/trophy.png')} style={styles.imageSuccess} />
-			<Text style={styles.summaryText}>
-				Your phone needed <Text style={styles.hightlight}>{roundsNumber}</Text> rounds to
-				guess the number <Text style={styles.hightlight}>{userNumber}</Text>.
-			</Text>
-			<DefaultButton text='New Game' onPressButton={onStartNewGame} />
-		</View>
+		<ScrollView style={styles.screenContainer}>
+			<KeyboardAvoidingView behavior='position' style={styles.screenContainer}>
+				<View style={styles.rootContainer}>
+					<Title>Game over!</Title>
+					<Image
+						source={require('@/assets/images/trophy.png')}
+						style={styles.imageSuccess}
+					/>
+					<Text style={styles.summaryText}>
+						Your phone needed <Text style={styles.hightlight}>{roundsNumber}</Text>{' '}
+						rounds to guess the number{' '}
+						<Text style={styles.hightlight}>{userNumber}</Text>.
+					</Text>
+					<DefaultButton text='New Game' onPressButton={onStartNewGame} />
+				</View>
+			</KeyboardAvoidingView>
+		</ScrollView>
 	);
 }
 
 const deviceWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
+	screenContainer: {
+		flex: 1,
+	},
 	rootContainer: {
 		flex: 1,
+		paddingVertical: 50,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
