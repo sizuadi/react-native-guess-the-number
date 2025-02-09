@@ -49,34 +49,39 @@ export default function StartGamePage({ onPickNumber }: StartGameProps) {
 	const marginTop = height < 380 ? 30 : 50;
 
 	return (
-		<ScrollView style={styles.screenContainer}>
-			<KeyboardAvoidingView behavior='position' style={styles.screenContainer}>
-				<View style={[styles.rootContainer, { marginTop: marginTop }]}>
-					<Title>Guess My Number</Title>
-					<Card>
-						<InstructionText>Enter a number</InstructionText>
-						<TextInput
-							style={styles.inputText}
-							maxLength={2}
-							keyboardType='number-pad'
-							autoCapitalize='none'
-							autoCorrect={false}
-							defaultValue=''
-							value={enteredNumber === '' ? '' : enteredNumber}
-							onChangeText={(text) => numberInputHandler(text)}
-						/>
-						<View style={styles.buttonsContainer}>
-							<View style={styles.buttonContainer}>
-								<DefaultButton onPressButton={resetInputHandler} text='Reset' />
+		<>
+			<ScrollView style={styles.screenContainer}>
+				<KeyboardAvoidingView behavior='position' style={styles.screenContainer}>
+					<View style={[styles.rootContainer, { marginTop: marginTop }]}>
+						<Title>Guess My Number</Title>
+						<Card>
+							<InstructionText>Enter a number</InstructionText>
+							<TextInput
+								style={styles.inputText}
+								maxLength={2}
+								keyboardType='number-pad'
+								autoCapitalize='none'
+								autoCorrect={false}
+								defaultValue=''
+								value={enteredNumber === '' ? '' : enteredNumber}
+								onChangeText={(text) => numberInputHandler(text)}
+							/>
+							<View style={styles.buttonsContainer}>
+								<View style={styles.buttonContainer}>
+									<DefaultButton onPressButton={resetInputHandler} text='Reset' />
+								</View>
+								<View style={styles.buttonContainer}>
+									<DefaultButton
+										onPressButton={confirmInputHandler}
+										text='Confirm'
+									/>
+								</View>
 							</View>
-							<View style={styles.buttonContainer}>
-								<DefaultButton onPressButton={confirmInputHandler} text='Confirm' />
-							</View>
-						</View>
-					</Card>
-				</View>
-			</KeyboardAvoidingView>
-		</ScrollView>
+						</Card>
+					</View>
+				</KeyboardAvoidingView>
+			</ScrollView>
+		</>
 	);
 }
 

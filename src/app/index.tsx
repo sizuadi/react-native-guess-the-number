@@ -3,6 +3,7 @@ import InGamePage from '@/components/pages/InGamePage';
 import StartGamePage from '@/components/pages/StartGamePage';
 import Colors from '@/constants/colors';
 import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 
@@ -43,15 +44,18 @@ export default function Index() {
 	}
 
 	return (
-		<LinearGradient colors={['#023c69', '#1481c0']} style={styles.rootScreen}>
-			<ImageBackground
-				source={require('@/assets/images/bg-pict.jpg')}
-				style={styles.rootScreen}
-				imageStyle={{ opacity: 0.15 }}
-			>
-				<SafeAreaView style={styles.rootScreen}>{page}</SafeAreaView>
-			</ImageBackground>
-		</LinearGradient>
+		<>
+			<StatusBar style='light' />
+			<LinearGradient colors={['#023c69', '#1481c0']} style={styles.rootScreen}>
+				<ImageBackground
+					source={require('@/assets/images/bg-pict.jpg')}
+					style={styles.rootScreen}
+					imageStyle={{ opacity: 0.15 }}
+				>
+					<SafeAreaView style={styles.rootScreen}>{page}</SafeAreaView>
+				</ImageBackground>
+			</LinearGradient>
+		</>
 	);
 }
 

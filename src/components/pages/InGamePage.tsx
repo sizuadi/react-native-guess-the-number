@@ -96,6 +96,7 @@ export default function InGamePage({ userNumber, onGameOver }: inGameProps) {
 					{/* LOG ROUNDS */}
 					<SafeAreaView style={styles.screenContainer}>
 						<FlatList
+							scrollEnabled={false}
 							data={guessRounds}
 							renderItem={(itemData) => (
 								<GuessLogItem
